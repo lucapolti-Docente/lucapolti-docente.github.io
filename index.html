@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tecnología, Diseño y Programación</title>
+<meta name="description" content="Actividades de Tecnología, Diseño y Programación para la escuela primaria.">
+<link rel="icon" href="img/robot-tecnologia-1.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Noto+Color+Emoji&display=swap">
+<link rel="stylesheet" href="estilos.css">
+</head>
+<body class="portada">
+<main class="pagina">
+  <header class="cabecera">
+    <h1 class="titulo">TECNOLOGÍA, DISEÑO Y PROGRAMACIÓN</h1>
+    <p class="etiqueta">ELEGÍ UNA ACTIVIDAD</p>
+  </header>
+
+  <nav class="grilla" id="grilla" aria-label="Actividades"></nav>
+
+  <footer class="pie">
+    <a class="link-docentes" href="docentes.html">PARA DOCENTES</a>
+  </footer>
+</main>
+
+<script src="actividades.js"></script>
+<script>
+(function () {
+  var grilla = document.getElementById('grilla');
+  var lista = window.ACTIVIDADES || [];
+
+  function el(etiqueta, clase, texto) {
+    var nodo = document.createElement(etiqueta);
+    if (clase) nodo.className = clase;
+    if (texto) nodo.textContent = texto;
+    return nodo;
+  }
+
+  lista.forEach(function (a) {
+    var tarjeta = el('a', 'tarjeta');
+    tarjeta.href = a.url;
+    tarjeta.style.backgroundColor = a.fondo;
+    tarjeta.style.color = a.texto;
+    tarjeta.setAttribute('aria-label', a.nombre + '. ' + a.frase + '. Grados: ' + a.grados.join(', '));
+
+    var dibujo = el('span', 'tarjeta-dibujo');
+    var img = el('img');
+    img.src = 'img/' + a.dibujo;
+    img.alt = '';
+    dibujo.appendChild(img);
+
+    var grados = el('span', 'tarjeta-grados');
+    a.grados.forEach(function (g) { grados.appendChild(el('span', 'grado', g)); });
+
+    tarjeta.appendChild(dibujo);
+    tarjeta.appendChild(el('span', 'tarjeta-nombre', a.nombre));
+    tarjeta.appendChild(el('span', 'tarjeta-frase', a.frase));
+    tarjeta.appendChild(grados);
+    grilla.appendChild(tarjeta);
+  });
+})();
+</script>
+</body>
+</html>

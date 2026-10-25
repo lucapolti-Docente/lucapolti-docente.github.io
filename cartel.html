@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cartel para el aula</title>
+<!-- Fuente del cartel-aula.pdf. Para rehacerlo: abrir en Chrome → Imprimir → A4, sin márgenes, con gráficos de fondo → Guardar como PDF. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Noto+Color+Emoji&display=swap">
+<style>
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: #FFF4DC; }
+  body {
+    color: #1B1A3A;
+    font-family: "Baloo 2", "Trebuchet MS", Arial, Helvetica, "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", sans-serif;
+    text-transform: uppercase;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .hoja {
+    width: 210mm;
+    height: 297mm;
+    margin: 0 auto;
+    padding: 16mm 14mm 14mm;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border: 6mm solid #1B1A3A;
+    overflow: hidden;
+  }
+  h1 { margin: 0; font-size: 34pt; line-height: 1.02; font-weight: 800; }
+  .dibujos { display: flex; flex-wrap: wrap; justify-content: center; margin: 8mm 0 6mm; }
+  .dibujo {
+    width: 36mm; height: 36mm; margin: 0 2.5mm;
+    border: 1.2mm solid #1B1A3A; border-radius: 7mm;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .dibujo img { width: 84%; height: 84%; }
+  .consigna { margin: 0 0 4mm; font-size: 20pt; font-weight: 800; }
+  .qr { width: 118mm; height: 118mm; border: 1.5mm solid #1B1A3A; border-radius: 5mm; background: #FFFFFF; }
+  .qr img { display: block; width: 100%; height: 100%; }
+  .direccion {
+    margin-top: auto;
+    padding: 3mm 8mm 2mm;
+    background: #1B1A3A; color: #FFF4DC;
+    border-radius: 6mm;
+    font-size: 23pt; font-weight: 800;
+    text-transform: lowercase;
+    letter-spacing: .3pt;
+  }
+</style>
+</head>
+<body>
+<div class="hoja">
+  <h1>TECNOLOGÍA, DISEÑO<br>Y PROGRAMACIÓN</h1>
+  <div class="dibujos" id="dibujos"></div>
+  <p class="consigna">ESCANEÁ Y ELEGÍ UNA ACTIVIDAD</p>
+  <div class="qr"><img src="img/qr.svg" alt="Código QR"></div>
+  <p class="direccion">lucapolti-docente.github.io</p>
+</div>
+<script src="actividades.js"></script>
+<script>
+(function () {
+  var caja = document.getElementById('dibujos');
+  (window.ACTIVIDADES || []).forEach(function (a) {
+    var d = document.createElement('div');
+    d.className = 'dibujo';
+    d.style.backgroundColor = a.fondo;
+    var img = document.createElement('img');
+    img.src = 'img/' + a.dibujo;
+    img.alt = '';
+    d.appendChild(img);
+    caja.appendChild(d);
+  });
+})();
+</script>
+</body>
+</html>

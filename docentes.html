@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Para docentes · Tecnología, Diseño y Programación</title>
+<link rel="icon" href="img/robot-tecnologia-1.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Noto+Color+Emoji&display=swap">
+<link rel="stylesheet" href="estilos.css">
+</head>
+<body class="docentes">
+<main class="hoja">
+  <a class="volver" href="index.html">← Volver a las actividades</a>
+
+  <h1>Para docentes</h1>
+  <p>Estas actividades acompañan las clases de <b>Tecnologías, Diseño y Programación</b> en la escuela primaria
+    (Diseño Curricular de CABA). Son juegos y propuestas para usar en el aula, en notebooks o celulares, sin instalar nada
+    y sin crear cuentas. No guardan datos personales de los chicos: el progreso queda solo en la compu donde se juega.</p>
+  <p>Los chicos entran siempre por la misma dirección y eligen la actividad tocando su dibujo:
+    <b style="white-space: nowrap">lucapolti-docente.github.io</b></p>
+
+  <h2>Actividades</h2>
+  <table class="tabla" id="tabla">
+    <thead>
+      <tr><th>Actividad</th><th>Grados</th><th>Guía docente</th></tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <h2>Cartel para el aula</h2>
+  <div class="qr-bloque">
+    <img src="img/qr.svg" alt="Código QR de https://lucapolti-docente.github.io/">
+    <div class="texto">
+      <p>El código QR lleva a <b>https://lucapolti-docente.github.io/</b>. Se puede escanear con la cámara del celular
+        o de la tablet.</p>
+      <p>Imprimí el cartel en hoja A4 y pegalo en el aula o en el laboratorio:</p>
+      <p><a class="boton" href="cartel-aula.pdf">Descargar cartel A4 (PDF)</a></p>
+    </div>
+  </div>
+</main>
+
+<script src="actividades.js"></script>
+<script>
+(function () {
+  var cuerpo = document.querySelector('#tabla tbody');
+  (window.ACTIVIDADES || []).forEach(function (a) {
+    var fila = document.createElement('tr');
+
+    var celdaNombre = document.createElement('td');
+    var mini = document.createElement('span');
+    mini.className = 'mini';
+    mini.style.backgroundColor = a.fondo;
+    var img = document.createElement('img');
+    img.src = 'img/' + a.dibujo;
+    img.alt = '';
+    mini.appendChild(img);
+    var enlace = document.createElement('a');
+    enlace.href = a.url;
+    enlace.textContent = a.nombre;
+    celdaNombre.appendChild(mini);
+    celdaNombre.appendChild(enlace);
+
+    var celdaGrados = document.createElement('td');
+    celdaGrados.textContent = a.grados.join(' · ');
+
+    var celdaGuia = document.createElement('td');
+    if (a.docentes) {
+      var guia = document.createElement('a');
+      guia.href = a.docentes;
+      guia.textContent = 'Ver guía';
+      celdaGuia.appendChild(guia);
+    } else {
+      celdaGuia.className = 'pendiente';
+      celdaGuia.textContent = 'En preparación';
+    }
+
+    fila.appendChild(celdaNombre);
+    fila.appendChild(celdaGrados);
+    fila.appendChild(celdaGuia);
+    cuerpo.appendChild(fila);
+  });
+})();
+</script>
+</body>
+</html>
