@@ -55,7 +55,9 @@ body {
 
 .grilla {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  /* en pantallas anchas, todas las actividades en una sola fila, sean las que sean */
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr);
   grid-gap: 24px;
   gap: 24px;
   align-items: stretch;
@@ -92,7 +94,7 @@ body {
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 40vh;
+  height: 36vh;
   min-height: 150px;
   max-height: 320px;
   margin-bottom: 8px;
@@ -161,12 +163,14 @@ body {
 }
 
 /* Pantallas bajas (notebook con barras del navegador) */
-@media (max-height: 640px) and (min-width: 821px) {
+@media (max-height: 730px) and (min-width: 821px) {
   .pagina { padding-top: 12px; }
   .cabecera { margin-bottom: 12px; }
   .titulo { font-size: 30px; }
   .etiqueta { margin-top: 8px; font-size: 18px; }
-  .tarjeta-dibujo { height: 36vh; }
+  .tarjeta-dibujo { height: 26vh; }
+  .tarjeta-nombre { font-size: 24px; }
+  .tarjeta-frase { font-size: 16px; }
 }
 
 /* Celular y tablet angosta: de a 2 por fila, se scrollea */
@@ -174,7 +178,7 @@ body {
   .pagina { padding: 16px 16px 8px; }
   .titulo { font-size: 26px; }
   .etiqueta { font-size: 17px; margin-top: 10px; padding: 3px 16px 1px; }
-  .grilla { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-gap: 14px; gap: 14px; }
+  .grilla { grid-auto-flow: row; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-gap: 14px; gap: 14px; }
   .tarjeta { padding: 10px 8px 12px; border-radius: 20px; border-width: 3px; box-shadow: 0 5px 0 var(--tinta); }
   .tarjeta-dibujo { height: 150px; min-height: 0; border-radius: 14px; }
   .tarjeta-nombre { font-size: 21px; }

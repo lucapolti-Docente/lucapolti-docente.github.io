@@ -46,5 +46,15 @@ window.ACTIVIDADES = [
     fondo: '#FFB3CB',
     texto: '#1B1A3A',
     dibujo: 'reci.svg'
+  },
+  {
+    nombre: 'La Línea',
+    frase: 'Armá la fábrica',
+    grados: ['4.º', '5.º', '6.º', '7.º'],
+    url: 'https://lucapolti-docente.github.io/la-linea/',
+    docentes: 'https://lucapolti-docente.github.io/la-linea/docentes/',
+    fondo: '#FF8A3D',
+    texto: '#1B1A3A',
+    dibujo: 'nora-la-linea.svg'
   }
 ];
