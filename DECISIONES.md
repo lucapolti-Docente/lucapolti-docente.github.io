@@ -13,3 +13,5 @@
 - 25/10/2026 · La guía de La gran máquina figura "En preparación": `https://lucapolti-docente.github.io/la-gran-maquina/docentes/` da 404.
 - 27/10/2026 · Con La Línea son 5 actividades: en pantallas anchas la grilla pone todas en una sola fila (`grid-auto-flow: column`), sin importar cuántas sean, en lugar de dejar la quinta sola en otra fila con scroll. Para que entren sin scroll se bajó el dibujo a 36 % del alto, y en pantallas de hasta 730 px de alto a 26 % con letras un poco más chicas. Probado sin scroll en 1366×768, 1366×650, 1280×720, 1024×600 y 1920×1080. En celular sigue de a 2 por fila, con scroll.
 - 27/10/2026 · El dibujo de La Línea es Nora, la encargada, copiada del código del juego (`src/dibujo/personajes.js`). Fondo naranja propio (#FF8A3D) con letras oscuras.
+
+- 2026-10-28: se suma ¡A Moverse! (6 tarjetas, entran en 1366×768 sin scroll). Su dibujo (`img/bichito-a-moverse.svg`) se hizo a mano copiando el bichito del juego, porque ahí se dibuja en canvas y no hay SVG para copiar.

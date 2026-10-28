@@ -56,5 +56,15 @@ window.ACTIVIDADES = [
     fondo: '#FF8A3D',
     texto: '#1B1A3A',
     dibujo: 'nora-la-linea.svg'
+  },
+  {
+    nombre: '¡A Moverse!',
+    frase: 'Programá como en Scratch',
+    grados: ['4.º', '5.º', '6.º', '7.º'],
+    url: 'https://lucapolti-docente.github.io/a-moverse/',
+    docentes: 'https://lucapolti-docente.github.io/a-moverse/docentes/',
+    fondo: '#8EE3B0',
+    texto: '#1B1A3A',
+    dibujo: 'bichito-a-moverse.svg'
   }
 ];
